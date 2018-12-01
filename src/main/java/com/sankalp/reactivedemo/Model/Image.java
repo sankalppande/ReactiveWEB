@@ -1,37 +1,19 @@
 package com.sankalp.reactivedemo.Model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 public class Image {
 
-    private String id;
+    private int id;
     private String name;
 
-    public Image(String id, String name) {
+    public Image(int id, String name) {
 
         this.id = id;
         this.name = name;
     }
 
-    public Image() {
-
-    }
-
-    public String getId() {
-
-        return id;
-    }
-
-    public void setId(String id) {
-
-        this.id = id;
-    }
-
-    public String getName() {
-
-        return name;
-    }
-
-    public void setName(String name) {
-
-        this.name = name;
-    }
 }
