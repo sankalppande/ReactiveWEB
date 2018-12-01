@@ -3,11 +3,13 @@ package com.sankalp.reactivedemo.Service;
 import com.sankalp.reactivedemo.Model.Image;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
+import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.util.FileSystemUtils;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -52,6 +54,11 @@ public class ImageService {
             return Flux.empty();
         }
 
+    }
+
+    public Mono<Resource> findOneImage(String FileName) {
+
+        return Mono.fromSupplier(() -> resourceLoader.getResource("File :" + UPLOAD_ROOT + "/" + FileName));
     }
 
 }
